@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F4F0"
+    tools:context=".MainActivity">
+
+    <!-- Top Search Bar - Rounded Rectangle -->
+    <LinearLayout
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/search_bar_background"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:elevation="1dp">
+
+        <!-- Hamburger Menu (3 lines) -->
+        <ImageView
+            android:id="@+id/iv_hamburger"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_hamburger"
+            android:layout_marginEnd="16dp" />
+
+        <!-- Search Text -->
+        <TextView
+            android:id="@+id/tv_search_placeholder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Telusuri dalam email"
+            android:textColor="#8A8A8A"
+            android:textSize="16sp" />
+
+        <!-- Profile Circle -->
+        <View
+            android:id="@+id/profile_circle"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/profile_circle"
+            android:layout_marginStart="16dp" />
+
+    </LinearLayout>
+
+    <!-- Main Empty State Content - Centered -->
+    <LinearLayout
+        android:id="@+id/empty_state_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Custom 3D Boxes Illustration -->
+        <RelativeLayout
+            android:id="@+id/boxes_container"
+            android:layout_width="180dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="32dp">
+
+            <!-- Blue Box (Right Back) -->
+            <View
+                android:id="@+id/blue_box"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/blue_3d_box" />
+
+            <!-- Yellow Box (Center Middle) -->
+            <View
+                android:id="@+id/yellow_box"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/blue_box"
+                android:layout_marginBottom="-15dp"
+                android:background="@drawable/yellow_3d_box" />
+
+            <!-- Red Box with Flag (Left Front) -->
+            <LinearLayout
+                android:id="@+id/red_box_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical">
+
+                <!-- Flag Pole and Flag -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginBottom="-2dp">
+
+                    <!-- Flag Pole -->
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="25dp"
+                        android:background="#666666" />
+
+                    <!-- Red Flag -->
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="12dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/red_flag" />
+
+                </LinearLayout>
+
+                <!-- Red Box -->
+                <View
+                    android:id="@+id/red_box"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/red_3d_box" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- "Selesai" Text -->
+        <TextView
+            android:id="@+id/tv_selesai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selesai"
+            android:textSize="32sp"
+            android:textColor="#333333"
+            android:textStyle="normal"
+            android:layout_marginBottom="8dp" />
+
+        <!-- "Bagian Utama kosong" Text -->
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bagian Utama kosong"
+            android:textSize="16sp"
+            android:textColor="#888888" />
+
+    </LinearLayout>
+
+    <!-- Bottom Section -->
+    <!-- Floating Write Button (Green) -->
+    <LinearLayout
+        android:id="@+id/write_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_navigation"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/write_button_bg"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp">
+
+        <!-- Pencil Icon -->
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_pencil"
+            android:layout_marginEnd="8dp" />
+
+        <!-- "Tulis" Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tulis"
+            android:textColor="#2E7D32"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:elevation="8dp">
+
+        <!-- Mail Icon -->
+        <ImageView
+            android:id="@+id/iv_mail_bottom"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_mail_outline"
+            android:layout_marginEnd="40dp" />
+
+        <!-- Video Call Icon -->
+        <ImageView
+            android:id="@+id/iv_video_bottom"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_video_call"
+            android:layout_marginStart="40dp" />
+
+    </LinearLayout>
+
+    <!-- Bottom Phone Navigation (Android System) -->
+    <LinearLayout
+        android:id="@+id/system_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/bottom_navigation"
+        android:background="#F0F4F0"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Menu Button -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_menu_dots"
+            android:layout_marginEnd="60dp" />
+
+        <!-- Home Button -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_home_button" />
+
+        <!-- Back Button -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back_arrow"
+            android:layout_marginStart="60dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
