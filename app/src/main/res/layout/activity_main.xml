@@ -52,6 +52,14 @@
 
     </LinearLayout>
 
+    <!-- Fragment Container -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_bar"
+        android:visibility="gone" />
+
     <!-- Main Empty State Content - Centered -->
     <LinearLayout
         android:id="@+id/empty_state_content"
@@ -235,939 +243,868 @@
 
     </LinearLayout>
 
-    <!-- PROFILE MENU OVERLAY (Slide from Right) -->
-    <LinearLayout
-        android:id="@+id/profile_menu_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <!-- Semi-transparent background -->
-        <View
-            android:id="@+id/profile_menu_background"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#80000000" />
-
-        <!-- Profile Menu Content -->
-        <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:orientation="vertical"
-            android:paddingTop="24dp">
-
-            <!-- Profile Header -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingBottom="16dp">
-
-                <!-- Email Address -->
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="andaydia463@gmail.com"
-                    android:textSize="16sp"
-                    android:textColor="#333333" />
-
-                <!-- Close Button -->
-                <ImageView
-                    android:id="@+id/profile_close_button"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_close"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:padding="4dp" />
-
-            </LinearLayout>
-
-            <!-- Profile Picture Section -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-                android:paddingHorizontal="24dp"
-                android:paddingBottom="24dp">
-
-                <!-- Profile Image -->
-                <View
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="@drawable/profile_picture_large"
-                    android:layout_marginBottom="16dp" />
-
-                <!-- Name -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Anday Dia yang terhormat,"
-                    android:textSize="20sp"
-                    android:textColor="#333333"
-                    android:textStyle="normal"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Manage Google Account Button -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kelola Akun Google Anda"
-                    android:textSize="14sp"
-                    android:textColor="#1976D2"
-                    android:background="@drawable/manage_account_button"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="8dp"
-                    android:layout_marginBottom="16dp" />
-
-                <!-- Action Recommendations -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/recommendation_background"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="12dp">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_warning"
-                        android:layout_marginEnd="12dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tindakan yang disarankan"
-                        android:textSize="14sp"
-                        android:textColor="#333333" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- Account Switcher -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#F5F5F5"
-                android:paddingVertical="16dp">
-
-                <!-- Switch Account Header -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="24dp"
-                    android:paddingBottom="12dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Ganti akun"
-                        android:textSize="14sp"
-                        android:textColor="#666666" />
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/ic_expand_up" />
-
-                </LinearLayout>
-
-                <!-- Other Account -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="24dp"
-                    android:paddingVertical="12dp"
-                    android:background="?android:attr/selectableItemBackground">
-
-                    <View
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/profile_ria"
-                        android:layout_marginEnd="16dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Iandi Ria"
-                            android:textSize="14sp"
-                            android:textColor="#333333" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="andidia62@gmail.com"
-                            android:textSize="12sp"
-                            android:textColor="#666666" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="99+"
-                        android:textSize="12sp"
-                        android:textColor="#666666" />
-
-                </LinearLayout>
-
-                <!-- Add Account -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="24dp"
-                    android:paddingVertical="16dp"
-                    android:background="?android:attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_add_account"
-                        android:layout_marginEnd="16dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tambahkan akun lainnya"
-                        android:textSize="14sp"
-                        android:textColor="#333333" />
-
-                </LinearLayout>
-
-                <!-- Manage Account -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="24dp"
-                    android:paddingVertical="16dp"
-                    android:background="?android:attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_manage_accounts"
-                        android:layout_marginEnd="16dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kelola akun di perangkat ini"
-                        android:textSize="14sp"
-                        android:textColor="#333333" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- Storage Info -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="20dp"
-                android:background="#F9F9F9">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_storage"
-                    android:layout_marginEnd="16dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="79% dari 15 GB digunakan"
-                    android:textSize="14sp"
-                    android:textColor="#333333" />
-
-            </LinearLayout>
-
-            <!-- Bottom Links jk -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kebijakan Privasi"
-                    android:textSize="12sp"
-                    android:textColor="#666666"
-                    android:layout_marginEnd="16dp" />
-
-                <View
-                    android:layout_width="4dp"
-                    android:layout_height="4dp"
-                    android:background="@drawable/dot_separator"
-                    android:layout_marginEnd="16dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Persyaratan Layanan"
-                    android:textSize="12sp"
-                    android:textColor="#666666" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <!-- NAVIGATION DRAWER OVERLAY (Slide from Left) -->
-    <LinearLayout
-        android:id="@+id/navigation_drawer_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <!-- Navigation Drawer Content -->
-        <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:orientation="vertical">
-
-            <!-- Gmail Header -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingTop="24dp"
-                android:paddingBottom="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gmail"
-                    android:textSize="22sp"
-                    android:textColor="#EA4335"
-                    android:textStyle="normal" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1" />
-
-                <View
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/profile_circle_small" />
-
-            </LinearLayout>
-
-            <!-- Scrollable Menu Items -->
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <!-- Primary Menu Items -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingBottom="8dp">
-
-                        <!-- All Inboxes -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_all_inbox"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Semua kotak masuk"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Primary (Selected) -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="@drawable/menu_item_selected">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_inbox_selected"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Utama"
-                                android:textSize="14sp"
-                                android:textColor="#1976D2"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                        <!-- Promotions -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_promotions"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Promosi"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Social -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_social"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sosial"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Updates -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_updates"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Info Terbaru"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <!-- All Labels Section -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingTop="8dp">
-
-                        <!-- Section Header -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Semua label"
-                            android:textSize="12sp"
-                            android:textColor="#666666"
-                            android:paddingHorizontal="24dp"
-                            android:paddingVertical="8dp" />
-
-                        <!-- Starred -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_star"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Berbintang"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Snoozed -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_snooze"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Ditunda"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Important -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_important"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Penting"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1"
-                                android:textSize="12sp"
-                                android:textColor="#666666" />
-
-                        </LinearLayout>
-
-                        <!-- Sent -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_sent"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Terkirim"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Scheduled -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_schedule"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Terjadwal"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Outbox -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_outbox"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Kotak keluar"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Drafts -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_draft"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Draf"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- All Mail -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_all_mail"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Semua email"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="13"
-                                android:textSize="12sp"
-                                android:textColor="#666666" />
-
-                        </LinearLayout>
-
-                        <!-- Spam -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_spam"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Spam"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Trash -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_trash"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sampah"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <!-- Google Apps Section -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingTop="16dp"
-                        android:paddingBottom="8dp">
-
-                        <!-- Section Header -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Aplikasi Google"
-                            android:textSize="12sp"
-                            android:textColor="#666666"
-                            android:paddingHorizontal="24dp"
-                            android:paddingVertical="8dp" />
-
-                        <!-- Calendar -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_calendar"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Kalender"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Contacts -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_contacts"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Kontak"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Settings -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_settings"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Setelan"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Help & Feedback -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_help"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/bantuan_masukan"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                        </LinearLayout>
-
-                        <!-- Bottom All Mail -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingHorizontal="24dp"
-                            android:background="?android:attr/selectableItemBackground">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_all_mail"
-                                android:layout_marginEnd="32dp" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Semua email"
-                                android:textSize="14sp"
-                                android:textColor="#333333" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="13"
-                                android:textSize="12sp"
-                                android:textColor="#666666" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </ScrollView>
-
-        </LinearLayout>
-
-        <!-- Semi-transparent background -->
-        <View
-            android:id="@+id/navigation_drawer_background"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#80000000" />
-
-    </LinearLayout>
-
 </RelativeLayout>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:id="@+id/main"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:background="#F0F4F0"-->
+<!--    tools:context=".MainActivity">-->
+
+<!--    &lt;!&ndash; Main Content &ndash;&gt;-->
+<!--    &lt;!&ndash; Top Search Bar - Rounded Rectangle &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/search_bar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginHorizontal="16dp"-->
+<!--        android:background="@drawable/search_bar_background"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:paddingHorizontal="16dp"-->
+<!--        android:elevation="1dp">-->
+
+<!--        &lt;!&ndash; Hamburger Menu (3 lines) &ndash;&gt;-->
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_hamburger"-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:src="@drawable/ic_hamburger"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:background="?android:attr/selectableItemBackgroundBorderless"-->
+<!--            android:padding="4dp" />-->
+
+<!--        &lt;!&ndash; Search Text &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/tv_search_placeholder"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Telusuri dalam email"-->
+<!--            android:textColor="#8A8A8A"-->
+<!--            android:textSize="16sp" />-->
+
+<!--        &lt;!&ndash; Profile Circle &ndash;&gt;-->
+<!--        <View-->
+<!--            android:id="@+id/profile_circle"-->
+<!--            android:layout_width="32dp"-->
+<!--            android:layout_height="32dp"-->
+<!--            android:background="@drawable/profile_circle_clickable"-->
+<!--            android:layout_marginStart="16dp" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Main Empty State Content - Centered &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/empty_state_content"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:orientation="vertical"-->
+<!--        android:gravity="center_horizontal">-->
+
+<!--        &lt;!&ndash; Custom 3D Boxes Illustration &ndash;&gt;-->
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/boxes_container"-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="140dp"-->
+<!--            android:layout_marginBottom="32dp">-->
+
+<!--            &lt;!&ndash; Blue Box (Right Back) &ndash;&gt;-->
+<!--            <View-->
+<!--                android:id="@+id/blue_box"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:background="@drawable/blue_3d_box" />-->
+
+<!--            &lt;!&ndash; Yellow Box (Center Middle) &ndash;&gt;-->
+<!--            <View-->
+<!--                android:id="@+id/yellow_box"-->
+<!--                android:layout_width="55dp"-->
+<!--                android:layout_height="55dp"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_above="@id/blue_box"-->
+<!--                android:layout_marginBottom="-15dp"-->
+<!--                android:background="@drawable/yellow_3d_box" />-->
+
+<!--            &lt;!&ndash; Red Box with Flag (Left Front) &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/red_box_container"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_alignParentTop="true"-->
+<!--                android:orientation="vertical">-->
+
+<!--                &lt;!&ndash; Flag Pole and Flag &ndash;&gt;-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_marginStart="45dp"-->
+<!--                    android:layout_marginBottom="-2dp">-->
+
+<!--                    &lt;!&ndash; Flag Pole &ndash;&gt;-->
+<!--                    <View-->
+<!--                        android:layout_width="2dp"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:background="#666666" />-->
+
+<!--                    &lt;!&ndash; Red Flag &ndash;&gt;-->
+<!--                    <View-->
+<!--                        android:layout_width="20dp"-->
+<!--                        android:layout_height="12dp"-->
+<!--                        android:layout_marginTop="2dp"-->
+<!--                        android:background="@drawable/red_flag" />-->
+
+<!--                </LinearLayout>-->
+
+<!--                &lt;!&ndash; Red Box &ndash;&gt;-->
+<!--                <View-->
+<!--                    android:id="@+id/red_box"-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:background="@drawable/red_3d_box" />-->
+
+<!--            </LinearLayout>-->
+
+<!--        </RelativeLayout>-->
+
+<!--        &lt;!&ndash; "Selesai" Text &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/tv_selesai"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Selesai"-->
+<!--            android:textSize="32sp"-->
+<!--            android:textColor="#333333"-->
+<!--            android:textStyle="normal"-->
+<!--            android:layout_marginBottom="8dp" />-->
+
+<!--        &lt;!&ndash; "Bagian Utama kosong" Text &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/tv_subtitle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Bagian Utama kosong"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textColor="#888888" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Floating Write Button (Green) &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/write_button_container"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_above="@id/bottom_navigation"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:background="@drawable/write_button_bg"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:paddingHorizontal="16dp"-->
+<!--        android:paddingVertical="12dp">-->
+
+<!--        &lt;!&ndash; Pencil Icon &ndash;&gt;-->
+<!--        <ImageView-->
+<!--            android:layout_width="18dp"-->
+<!--            android:layout_height="18dp"-->
+<!--            android:src="@drawable/ic_pencil"-->
+<!--            android:layout_marginEnd="8dp" />-->
+
+<!--        &lt;!&ndash; "Tulis" Text &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Tulis"-->
+<!--            android:textColor="#2E7D32"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Bottom Navigation Bar &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/bottom_navigation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="#FFFFFF"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center"-->
+<!--        android:elevation="8dp">-->
+
+<!--        &lt;!&ndash; Mail Icon with Background Highlight &ndash;&gt;-->
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="40dp">-->
+
+<!--            &lt;!&ndash; Green Circle Background (Hidden by default) &ndash;&gt;-->
+<!--            <View-->
+<!--                android:id="@+id/mail_icon_background"-->
+<!--                android:layout_width="56dp"-->
+<!--                android:layout_height="56dp"-->
+<!--                android:background="@drawable/mail_selected_background"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:visibility="gone" />-->
+
+<!--            &lt;!&ndash; Mail Icon &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_mail_bottom"-->
+<!--                android:layout_width="28dp"-->
+<!--                android:layout_height="28dp"-->
+<!--                android:src="@drawable/ic_mail_outline"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:background="?android:attr/selectableItemBackgroundBorderless"-->
+<!--                android:padding="8dp" />-->
+
+<!--        </RelativeLayout>-->
+
+<!--        &lt;!&ndash; Video Call Icon &ndash;&gt;-->
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_video_bottom"-->
+<!--            android:layout_width="28dp"-->
+<!--            android:layout_height="28dp"-->
+<!--            android:src="@drawable/ic_video_call"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:background="?android:attr/selectableItemBackgroundBorderless"-->
+<!--            android:padding="8dp" />-->
+
+<!--    </LinearLayout>-->
+
+
+<!--    &lt;!&ndash; NAVIGATION DRAWER OVERLAY (Slide from Left) &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/navigation_drawer_overlay"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:visibility="gone">-->
+
+<!--        &lt;!&ndash; Navigation Drawer Content &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="320dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="#FFFFFF"-->
+<!--            android:orientation="vertical">-->
+
+<!--            &lt;!&ndash; Gmail Header &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingHorizontal="24dp"-->
+<!--                android:paddingTop="24dp"-->
+<!--                android:paddingBottom="16dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Gmail"-->
+<!--                    android:textSize="22sp"-->
+<!--                    android:textColor="#EA4335"-->
+<!--                    android:textStyle="normal" />-->
+
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:layout_weight="1" />-->
+
+<!--                <View-->
+<!--                    android:layout_width="32dp"-->
+<!--                    android:layout_height="32dp"-->
+<!--                    android:background="@drawable/profile_circle_small" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; Scrollable Menu Items &ndash;&gt;-->
+<!--            <ScrollView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    &lt;!&ndash; Primary Menu Items &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingBottom="8dp">-->
+
+<!--                        &lt;!&ndash; All Inboxes &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_all_inbox"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Semua kotak masuk"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Primary (Selected) &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="@drawable/menu_item_selected">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_inbox_selected"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Utama"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#1976D2"-->
+<!--                                android:textStyle="bold" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Promotions &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_promotions"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Promosi"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Social &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_social"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Sosial"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Updates &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_updates"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Info Terbaru"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                    </LinearLayout>-->
+
+<!--                    &lt;!&ndash; All Labels Section &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingTop="8dp">-->
+
+<!--                        &lt;!&ndash; Section Header &ndash;&gt;-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Semua label"-->
+<!--                            android:textSize="12sp"-->
+<!--                            android:textColor="#666666"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:paddingVertical="8dp" />-->
+
+<!--                        &lt;!&ndash; Starred &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_star"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Berbintang"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Snoozed &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_snooze"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Ditunda"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Important &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_important"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:text="Penting"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="1"-->
+<!--                                android:textSize="12sp"-->
+<!--                                android:textColor="#666666" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Sent &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_sent"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Terkirim"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Scheduled &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_schedule"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Terjadwal"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Outbox &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_outbox"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Kotak keluar"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Drafts &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_draft"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Draf"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; All Mail &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_all_mail"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:text="Semua email"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="13"-->
+<!--                                android:textSize="12sp"-->
+<!--                                android:textColor="#666666" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Spam &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_spam"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Spam"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Trash &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_trash"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Sampah"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                    </LinearLayout>-->
+
+<!--                    &lt;!&ndash; Google Apps Section &ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingTop="16dp"-->
+<!--                        android:paddingBottom="8dp">-->
+
+<!--                        &lt;!&ndash; Section Header &ndash;&gt;-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Aplikasi Google"-->
+<!--                            android:textSize="12sp"-->
+<!--                            android:textColor="#666666"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:paddingVertical="8dp" />-->
+
+<!--                        &lt;!&ndash; Calendar &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_calendar"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Kalender"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Contacts &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_contacts"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Kontak"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Settings &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_settings"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Setelan"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Help & Feedback &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_help"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="@string/bantuan_masukan"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash; Bottom All Mail &ndash;&gt;-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:paddingHorizontal="24dp"-->
+<!--                            android:background="?android:attr/selectableItemBackground">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                android:layout_height="20dp"-->
+<!--                                android:src="@drawable/ic_all_mail"-->
+<!--                                android:layout_marginEnd="32dp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:text="Semua email"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:textColor="#333333" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="13"-->
+<!--                                android:textSize="12sp"-->
+<!--                                android:textColor="#666666" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                    </LinearLayout>-->
+
+<!--                </LinearLayout>-->
+
+<!--            </ScrollView>-->
+
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Semi-transparent background &ndash;&gt;-->
+<!--        <View-->
+<!--            android:id="@+id/navigation_drawer_background"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="#80000000" />-->
+
+<!--    </LinearLayout>-->
+
+<!--</RelativeLayout>-->
